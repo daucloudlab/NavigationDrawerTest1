@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -39,9 +40,11 @@ public class MainActivity extends AppCompatActivity {
                 switch (id){
                     case R.id.home:
                         Toast.makeText(getApplicationContext(), "HOME", Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.settings:
                         Toast.makeText(getApplicationContext(), "SETTINGS", Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         break ;
                 }
                 return true;
@@ -64,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
                 super.onDrawerOpened(drawerView);
             }
         };
-
-//        drawerLayout.addDrawerListener() ;
+//
+        drawerLayout.setDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
     }
 
